@@ -1,0 +1,41 @@
+version: '2'
+services:
+  # calc_server_square container defenition
+  calc_server_square:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/calc_server_square.dockerfile
+    container_name: calc-server-square
+    ports:
+      - '8080:8080'
+    networks:
+      - calc_server_network
+  # calc_server_add container defenition
+  calc_server_add:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/calc_server_add.dockerfile
+    container_name: calc-server-add
+    ports:
+      - '8081:8081'
+    networks:
+      - calc_server_network
+    environment:
+      - SQUAREHOST=calc-server-square
+      - SQUAREPORT=8080
+  # calc_server_sqrt container defenition
+  calc_server_sqrt:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/calc_server_sqrt.dockerfile
+    container_name: calc-server-sqrt
+    ports:
+      - '8082:8082'
+    networks:
+      - calc_server_network
+    environment:
+      - ADDHOST=calc-server-add
+      - ADDPORT=8081
+networks:
+  calc_server_network:
+    driver: bridge

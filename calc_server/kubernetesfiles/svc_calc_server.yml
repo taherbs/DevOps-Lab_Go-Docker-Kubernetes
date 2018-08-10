@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-server-svc
+  labels:
+    app: calc-server
+    version: v1
+spec:
+  type: NodePort
+  ports:
+  - name: calc-server-square
+    port: 8080
+    nodePort: 30001
+    protocol: TCP
+  - name: calc-server-add
+    port: 8081
+    nodePort: 30002
+    protocol: TCP
+  - name: calc-server-srt
+    port: 8082
+    nodePort: 30003
+    protocol: TCP
+  selector:
+    app: calc-server
