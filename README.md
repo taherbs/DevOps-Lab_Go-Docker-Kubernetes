@@ -1,4 +1,5 @@
 # DevOps Lab (Go+Docker+Kubernetes)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/taherbs/DevOps-Lab_Go-Docker-Kubernetes/master/LICENSE)
 
 This repo is simple Go webapplication packaged with Docker and can be run on an existing Kubernetes cluster. 
 This project could be used as a starting project for Docker/Kubernetes local dev environment and learning lab.
